@@ -13,7 +13,7 @@
 		/// <summary>
 		/// Defines window style of target.
 		/// </summary>
-		public int WindowStyle;
+		public string WindowStyle;
 		/// <summary>
 		/// Defines hot-key to start the target.
 		/// </summary>
@@ -42,7 +42,6 @@
 		/// </summary>
 		/// <param name="args">Input arguments.</param>
 		public oParams(string[] args) {
-			int n = 0;
 			for(int i=0; i<args.Length; i++) {
 				switch(args[i]) {
 					case "-o":
@@ -51,8 +50,7 @@
 						break;
 					case "-s":
 					case "--window-style":
-						int.TryParse(args[++i], out n);
-						WindowStyle = n;
+						WindowStyle = args[++i];
 						break;
 					case "-k":
 					case "--hot-key":

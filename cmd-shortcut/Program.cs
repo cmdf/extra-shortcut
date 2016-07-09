@@ -27,7 +27,10 @@ namespace orez.oshortcut {
 			if (p.TargetPath == null) return;
 			Match m = Regex.Match(p.TargetPath, PatternUrl);
 			bool isurl = m.Length > 0 && m.Index == 0;
-			if (p.Output == null) p.Output = isurl ? m.Groups[1].Value + "." : p.TargetPath.Replace(":", "");
+			if (p.Output == null) {
+				if (isurl) p.Output = m.Groups[1].Value.Replace("/", "_");
+				else p.Output = Path.GetFileNameWithoutExtension(p.TargetPath.Replace(":", ""));
+			}
 			p.Output = ExpandPath(p.Output);
 			p.TargetPath = ExpandPath(p.TargetPath);
 			p.IconLocation = ExpandPath(p.IconLocation);
@@ -45,7 +48,7 @@ namespace orez.oshortcut {
 		private static void LinkLocal(oParams p) {
 			IWshShortcut l = Sh.CreateShortcut(p.Output);
 			l.TargetPath = p.TargetPath;
-			if(p.WindowStyle > 0) l.WindowStyle = p.WindowStyle;
+			if (p.WindowStyle != null) l.WindowStyle = GetWindowStyle(p.WindowStyle);
 			if(p.HotKey != null) l.Hotkey = p.HotKey;
 			if(p.IconLocation != null) l.IconLocation = p.IconLocation;
 			if(p.Description != null) l.Description = p.Description;
@@ -81,7 +84,21 @@ namespace orez.oshortcut {
 		/// <param name="p">Input path.</param>
 		/// <returns>Path without extension.</returns>
 		private static string PathWithoutExt(string p) {
-			return Path.GetDirectoryName(p) + "\\" + Path.GetFileNameWithoutExtension(p);
+			string d = Path.GetDirectoryName(p);
+			string f = Path.GetFileNameWithoutExtension(p);
+			return d + (d.Length > 0 ? "\\" : "") + f;
+		}
+
+		/// <summary>
+		/// Get Window style integer from string.
+		/// </summary>
+		/// <param name="ws">Window style string.</param>
+		/// <returns>Window style integer.</returns>
+		private static int GetWindowStyle(string ws) {
+			ws = ws.ToLower();
+			if (ws.StartsWith("max")) return 3;
+			if (ws.StartsWith("min")) return 7;
+			return 1;
 		}
 	}
 }
