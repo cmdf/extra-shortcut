@@ -18,7 +18,6 @@ namespace cs_shortcut {
 
 		// static method
 		static void Main(string[] args) {
-			// args = new string[] { "C:", "-o", "{{Desktop}}\\a.url" };
 			oParams p = new oParams(args);
 			if (p.TargetPath == null) return;
 			Match m = Regex.Match(p.TargetPath, PatternUrl);
