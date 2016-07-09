@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using IWshRuntimeLibrary;
 
-namespace cs_shortcut {
+namespace orez.oshortcut {
 	class Program {
 
 		// static data

@@ -1,4 +1,4 @@
-﻿namespace cs_shortcut {
+﻿namespace orez.oshortcut {
 	class oParams {
 
 		// data

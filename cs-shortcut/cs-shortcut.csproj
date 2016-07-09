@@ -7,8 +7,8 @@
     <ProjectGuid>{BDD821E8-316D-4D67-8F87-0B5A9EE3EBBE}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>cs_shortcut</RootNamespace>
-    <AssemblyName>cs-shortcut</AssemblyName>
+    <RootNamespace>orez.oshortcut</RootNamespace>
+    <AssemblyName>oshortcut</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
