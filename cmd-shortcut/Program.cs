@@ -45,7 +45,7 @@ namespace orez.oshortcut {
 		private static void LinkLocal(oParams p) {
 			IWshShortcut l = Sh.CreateShortcut(p.Output);
 			l.TargetPath = p.TargetPath;
-			if(p.WindowStyle > 0) l.WindowStyle = p.WindowStyle;
+			if (p.WindowStyle != null) l.WindowStyle = GetWindowStyle(p.WindowStyle);
 			if(p.HotKey != null) l.Hotkey = p.HotKey;
 			if(p.IconLocation != null) l.IconLocation = p.IconLocation;
 			if(p.Description != null) l.Description = p.Description;
@@ -82,6 +82,18 @@ namespace orez.oshortcut {
 		/// <returns>Path without extension.</returns>
 		private static string PathWithoutExt(string p) {
 			return Path.GetDirectoryName(p) + "\\" + Path.GetFileNameWithoutExtension(p);
+		}
+
+		/// <summary>
+		/// Get Window style integer from string.
+		/// </summary>
+		/// <param name="ws">Window style string.</param>
+		/// <returns>Window style integer.</returns>
+		private static int GetWindowStyle(string ws) {
+			ws = ws.ToLower();
+			if (ws.StartsWith("max")) return 3;
+			if (ws.StartsWith("min")) return 7;
+			return 1;
 		}
 	}
 }
