@@ -27,7 +27,10 @@ namespace orez.oshortcut {
 			if (p.TargetPath == null) return;
 			Match m = Regex.Match(p.TargetPath, PatternUrl);
 			bool isurl = m.Length > 0 && m.Index == 0;
-			if (p.Output == null) p.Output = isurl ? m.Groups[1].Value + "." : p.TargetPath.Replace(":", "");
+			if (p.Output == null) {
+				if (isurl) p.Output = m.Groups[1].Value.Replace("/", "_");
+				else p.Output = Path.GetFileNameWithoutExtension(p.TargetPath.Replace(":", ""));
+			}
 			p.Output = ExpandPath(p.Output);
 			p.TargetPath = ExpandPath(p.TargetPath);
 			p.IconLocation = ExpandPath(p.IconLocation);
@@ -81,7 +84,9 @@ namespace orez.oshortcut {
 		/// <param name="p">Input path.</param>
 		/// <returns>Path without extension.</returns>
 		private static string PathWithoutExt(string p) {
-			return Path.GetDirectoryName(p) + "\\" + Path.GetFileNameWithoutExtension(p);
+			string d = Path.GetDirectoryName(p);
+			string f = Path.GetFileNameWithoutExtension(p);
+			return d + (d.Length > 0 ? "\\" : "") + f;
 		}
 
 		/// <summary>
