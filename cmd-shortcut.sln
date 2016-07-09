@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cs-shortcut", "cs-shortcut\cs-shortcut.csproj", "{BDD821E8-316D-4D67-8F87-0B5A9EE3EBBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cmd-shortcut", "cmd-shortcut\cmd-shortcut.csproj", "{BDD821E8-316D-4D67-8F87-0B5A9EE3EBBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
