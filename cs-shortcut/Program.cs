@@ -17,6 +17,11 @@ namespace cs_shortcut {
 		
 
 		// static method
+		/// <summary>
+		/// Dream is collapsing.
+		/// : Hans Zimmer
+		/// </summary>
+		/// <param name="args">Input arguments.</param>
 		static void Main(string[] args) {
 			oParams p = new oParams(args);
 			if (p.TargetPath == null) return;
