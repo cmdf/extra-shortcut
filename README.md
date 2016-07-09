@@ -37,8 +37,3 @@ Create Local or URL shortcut in Windows Console.
 
 :: details of more special folders here (https://www.google.co.in/#q=WshSpecialFolders)
 ```
-
-
-:: license
-
-Do you have a Poké ball? That's enough!
