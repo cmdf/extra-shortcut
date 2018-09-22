@@ -1,5 +1,5 @@
-﻿namespace orez.oshortcut {
-	class oParams {
+﻿namespace App {
+	class Params {
 
 		// data
 		/// <summary>
@@ -41,7 +41,7 @@
 		/// Get parameters from input arguments.
 		/// </summary>
 		/// <param name="args">Input arguments.</param>
-		public oParams(string[] args) {
+		public Params(string[] args) {
 			for(int i=0; i<args.Length; i++) {
 				switch(args[i]) {
 					case "-o":

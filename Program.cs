@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using IWshRuntimeLibrary;
 
-namespace orez.oshortcut {
+namespace App {
 	class Program {
 
 		// static data
@@ -23,7 +23,7 @@ namespace orez.oshortcut {
 		/// </summary>
 		/// <param name="args">Input arguments.</param>
 		static void Main(string[] args) {
-			oParams p = new oParams(args);
+			Params p = new Params(args);
 			if (p.TargetPath == null) return;
 			Match m = Regex.Match(p.TargetPath, PatternUrl);
 			bool isurl = m.Length > 0 && m.Index == 0;
@@ -45,7 +45,7 @@ namespace orez.oshortcut {
 		/// Create local shortcut.
 		/// </summary>
 		/// <param name="p">Input parameters.</param>
-		private static void LinkLocal(oParams p) {
+		private static void LinkLocal(Params p) {
 			IWshShortcut l = Sh.CreateShortcut(p.Output);
 			l.TargetPath = p.TargetPath;
 			if (p.WindowStyle != null) l.WindowStyle = GetWindowStyle(p.WindowStyle);
@@ -61,7 +61,7 @@ namespace orez.oshortcut {
 		/// Create URL shortcut.
 		/// </summary>
 		/// <param name="p">Input parameters.</param>
-		private static void LinkUrl(oParams p) {
+		private static void LinkUrl(Params p) {
 			IWshURLShortcut l = Sh.CreateShortcut(p.Output);
 			l.TargetPath = p.TargetPath;
 			l.Save();
