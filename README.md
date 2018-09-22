@@ -1,12 +1,11 @@
-# oshortcut
-
 Create Local or URL shortcut in Windows Console.
+> 1. Download [exe file](https://raw.githubusercontent.com/winp/extra-bel/master/ecd.cmd).
+> 2. Copy to `C:\Program_Files\Scripts`.
+> 3. Add `C:\Program_Files\Scripts` to `PATH` environment variable.
 
-
-## usage
 
 ```batch
-> oshortcut [options] <target path/url>
+> eshortcut [options] <target path/url>
 :: [-o|--output <output file>]
 :: [-s|--window-style <normal (default)/max/min>]
 :: [-k|--hot-key <hot key>]
@@ -21,19 +20,19 @@ Create Local or URL shortcut in Windows Console.
 
 ```batch
 :: create shortcut to google
-> oshortcut http://www.google.co.in
+> eshortcut http://www.google.co.in
 
 :: create shortcut to periodic table song
-> oshortcut --output PeriodicTableSong.url https://www.youtube.com/watch?v=VgVQKCcfwnU
+> eshortcut --output PeriodicTableSong.url https://www.youtube.com/watch?v=VgVQKCcfwnU
 
 :: create shortcut to halo
-> oshortcut "C:\Program Files (x86)\Halo Combat Evolved\Halo.exe"
+> eshortcut "C:\Program Files (x86)\Halo Combat Evolved\Halo.exe"
 
 :: create shortcut to watch dogs in desktop
-> oshortcut -o {{Desktop}}\Watch_Dogs.lnk "C:\Program Files (x86)\R.G. Mechanics\Watch Dogs\bin\watch_dogs.exe"
+> eshortcut -o {{Desktop}}\Watch_Dogs.lnk "C:\Program Files (x86)\R.G. Mechanics\Watch Dogs\bin\watch_dogs.exe"
 
 :: create shortcut for internet test in start menu
-> oshortcut -o {{StartMenu}}\Programs\InternetTest.lnk --arguments www.google.com ping
+> eshortcut -o {{StartMenu}}\Programs\InternetTest.lnk --arguments www.google.com ping
 
 :: details of more special folders here (https://www.google.co.in/#q=WshSpecialFolders)
 ```
